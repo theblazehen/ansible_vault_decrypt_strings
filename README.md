@@ -21,3 +21,6 @@ something:
 ## Decrypt the fields in your yaml file
 
 `python main.py vault_secret in.yaml out.yaml`
+
+## Example pyinstaller usage
+`~/.virtualenvs/vault_decrypt_strings/bin/pyinstaller --onefile --hidden-import pkg_resources.py2_warn main.spec`

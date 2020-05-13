@@ -20,7 +20,14 @@ something:
 
 ## Decrypt the fields in your yaml file
 
+### Create venv
+`python -m venv ve && source ./ve/bin/activate`
+
+### Run it
+
 `python main.py vault_secret in.yaml out.yaml`
 
 ## Example pyinstaller usage
-`~/.virtualenvs/vault_decrypt_strings/bin/pyinstaller --onefile --hidden-import pkg_resources.py2_warn main.spec`
+`pip install pyinstaller`
+edit `main.spec` with your relative to venv paths
+`./ve/bin/pyinstaller --onefile --hidden-import pkg_resources.py2_warn main.spec`

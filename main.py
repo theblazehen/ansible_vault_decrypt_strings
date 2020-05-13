@@ -2,18 +2,19 @@ import sys
 
 from ansible.parsing.vault import PromptVaultSecret, VaultLib, VaultSecret, AnsibleVaultError
 from ruamel.yaml import YAML
+import ansible
 from pprint import pprint
 
 if len(sys.argv) != 4:
     print("Supply <password_file> <input_yaml> <output_yaml>")
-    exit(1)
+    sys.exit(1)
 
 try: 
     with open(sys.argv[1], "rb") as pw_file:
         pw = pw_file.read()
 except FileNotFoundError:
     print("Password file not found")
-    exit(1)
+    sys.exit(1)
 
 vault_pw = VaultSecret(pw)
 vault_pw.load()
@@ -44,7 +45,7 @@ try:
         except AnsibleVaultError as e:
             print("Failed to decrypt")
             print(e)
-            exit(1)
+            sys.exit(1)
 except FileExistsError:
     print(f"Failed to open {sys.argv[2]}")
 

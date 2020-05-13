@@ -11,7 +11,7 @@ a = Analysis(['main.py'],
                  ("/home/jeandre/.virtualenvs/vault_decrypt_strings/lib/python3.8/site-packages/ansible/config/module_defaults.yml", "ansible/config")
 
              ],
-             hiddenimports=['pkg_resources.py2_warn'],
+             hiddenimports=['pkg_resources.py2_warn', 'configparser'],
              hookspath=[],
              runtime_hooks=[],
              excludes=[],
